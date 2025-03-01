@@ -1,6 +1,7 @@
 package br.sistema.alunos2025.db.dao;
 
 import br.sistema.alunos2025.db.model.Aluno;
+import br.sistema.alunos2025.utils.JPAUtil;
 import jakarta.persistence.EntityManager;
 
 import java.math.BigDecimal;
@@ -8,10 +9,14 @@ import java.util.List;
 
 public class AlunoDAO {
 
-    private final EntityManager em;
+    private final static AlunoDAO INSTANCE = new AlunoDAO();
+    private final EntityManager em = JPAUtil.getInstance();
 
-    public AlunoDAO(EntityManager em) {
-        this.em = em;
+    public static AlunoDAO getInstance() {
+        return INSTANCE;
+    }
+
+    public AlunoDAO() {
     }
 
     public void atualizar(Long id, String nome, String ra, String email,

@@ -15,22 +15,17 @@ public class Main {
         Aluno aluno2 = new Aluno();
         aluno2.setNome("Aluno2");
 
-        EntityManager em = JPAUtil.getEntityManager();
+        AlunoDAO.getInstance().cadastrar(aluno);
+        AlunoDAO.getInstance().cadastrar(aluno2);
 
-        AlunoDAO alunoDAO = new AlunoDAO(em);
-        alunoDAO.cadastrar(aluno);
-        alunoDAO.cadastrar(aluno2);
-
-        for (Aluno a : alunoDAO.buscarTodos()) {
+        for (Aluno a : AlunoDAO.getInstance().buscarTodos()) {
             System.out.println(a.getNome());
         }
 
-        alunoDAO.remover(alunoDAO.buscarTodos().getFirst().getId());
+        AlunoDAO.getInstance().remover(AlunoDAO.getInstance().buscarTodos().getFirst().getId());
 
-        for (Aluno a : alunoDAO.buscarTodos()) {
+        for (Aluno a : AlunoDAO.getInstance().buscarTodos()) {
             System.out.println(a.getNome());
         }
-
-        em.close();
     }
 }
