@@ -13,7 +13,8 @@ public class DataBaseService {
         return INSTANCE;
     }
 
-    public DataBaseService() {}
+    public DataBaseService() {
+    }
 
 
     public Aluno atualizarAluno(Long id, String nome, String ra, String email, double nota1, double nota2, double nota3) {
@@ -45,7 +46,6 @@ public class DataBaseService {
         aluno.setNota3(new BigDecimal(nota3));
 
         AlunoDAO.getInstance().cadastrar(aluno);
-
         return aluno;
     }
 

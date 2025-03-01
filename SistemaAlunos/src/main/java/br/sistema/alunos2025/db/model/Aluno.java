@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 @Entity
 @Table(name = "alunos")
@@ -76,5 +77,17 @@ public class Aluno {
 
     public void setNota3(BigDecimal nota3) {
         this.nota3 = nota3;
+    }
+
+    @Override
+    public String toString() {
+        return "Nome:" + nome + "\n" +
+                "RA: " + ra + "\n" +
+                "Email: " + email + "\n" +
+                "Notas: [" + displayGrade(nota1) + "] [" + displayGrade(nota2) + "] [" + displayGrade(nota3) + "]";
+    }
+
+    private String displayGrade(BigDecimal grade) {
+        return grade.setScale(1, RoundingMode.HALF_EVEN).toString();
     }
 }

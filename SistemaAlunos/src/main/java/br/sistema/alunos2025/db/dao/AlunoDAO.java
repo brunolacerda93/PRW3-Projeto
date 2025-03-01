@@ -23,7 +23,14 @@ public class AlunoDAO extends BaseDAO<Aluno> {
         return em.find(Aluno.class, id);
     }
 
+    public Aluno buscarPorNome(String nome) {
+        return em.createQuery("from Aluno where nome = :nome", Aluno.class)
+                .setParameter("nome", nome)
+                .getSingleResult();
+    }
+
     public List<Aluno> buscarTodos() {
-        return em.createQuery("from Aluno", Aluno.class).getResultList();
+        return em.createQuery("from Aluno", Aluno.class)
+                .getResultList();
     }
 }
