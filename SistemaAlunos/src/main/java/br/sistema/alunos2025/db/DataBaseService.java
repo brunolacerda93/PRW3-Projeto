@@ -35,6 +35,14 @@ public class DataBaseService {
         return aluno;
     }
 
+    public Aluno buscarAlunoPorNome(String nome) {
+        Aluno aluno = AlunoDAO.getInstance().buscarPorNome(nome);
+        if (aluno == null) {
+            System.out.println("Aluno não encontrado...");
+        }
+        return aluno;
+    }
+
     public Aluno cadastrarAluno(String nome, String ra, String email, double nota1, double nota2, double nota3) {
         Aluno aluno = new Aluno();
 

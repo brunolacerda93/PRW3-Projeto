@@ -81,7 +81,7 @@ public class Aluno {
 
     @Override
     public String toString() {
-        return "Nome:" + nome + "\n" +
+        return "Nome: " + nome + "\n" +
                 "RA: " + ra + "\n" +
                 "Email: " + email + "\n" +
                 "Notas: [" + displayGrade(nota1) + "] [" + displayGrade(nota2) + "] [" + displayGrade(nota3) + "]";

@@ -1,10 +1,7 @@
 package br.sistema.alunos2025.db.dao;
 
 import br.sistema.alunos2025.db.model.Aluno;
-import br.sistema.alunos2025.utils.JPAUtil;
-import jakarta.persistence.EntityManager;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 public class AlunoDAO extends BaseDAO<Aluno> {
